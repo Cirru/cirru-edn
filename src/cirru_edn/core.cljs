@@ -33,6 +33,7 @@
     (vector? data) (vec (concat (list "[]") (map edn->cirru data)))
     (list? data) (vec (concat (list "list") (map edn->cirru data)))
     (set? data) (vec (concat (list "set") (map edn->cirru data)))
+    (nil? data) "nil"
     :else (do (js/console.warn "Unknown data" data) [])))
 
 (defn parse [code]

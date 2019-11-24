@@ -1635,6 +1635,19 @@
            }
           }
          }
+         "yp" {
+          :type :expr, :by "rJG4IHzWf", :at 1574605919786, :id "NwJdul-wI"
+          :data {
+           "T" {
+            :type :expr, :by "rJG4IHzWf", :at 1574605920830, :id "JBCXGsSGT"
+            :data {
+             "T" {:type :leaf, :by "rJG4IHzWf", :at 1574605921471, :text "nil?", :id "NwJdul-wIleaf"}
+             "j" {:type :leaf, :by "rJG4IHzWf", :at 1574605922389, :text "data", :id "HeuMFqYrr"}
+            }
+           }
+           "j" {:type :leaf, :by "rJG4IHzWf", :at 1574605926638, :text "\"nil", :id "JRiEw3iyvp"}
+          }
+         }
          "yr" {
           :type :expr, :by "rJG4IHzWf", :at 1574564439193, :id "b6Q-Gjp3e"
           :data {
