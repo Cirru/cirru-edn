@@ -42,4 +42,4 @@
       (js/console.warn "data should only contain 1 item" (count cirru-tree)))
     (cirru->edn (first cirru-tree))))
 
-(defn write [data] (cirru-writer/write-code [(edn->cirru data)]))
+(defn write [data] (cirru-writer/write-code [(edn->cirru data)] {:inline? true}))

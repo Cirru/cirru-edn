@@ -1,0 +1,5 @@
+{
+  :deps {
+    cirru/writer {:mvn/version "0.1.4-a3"}
+  }
+}
