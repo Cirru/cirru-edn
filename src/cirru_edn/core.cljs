@@ -33,11 +33,11 @@
     (vector? data) (vec (concat (list "[]") (map edn->cirru data)))
     (list? data) (vec (concat (list "list") (map edn->cirru data)))
     (set? data) (vec (concat (list "set") (map edn->cirru data)))
+    (nil? data) "nil"
     :else (do (js/console.warn "Unknown data" data) [])))
 
 (defn parse [code]
   (let [cirru-tree (cirru-parser/pare code nil)]
-    (js/console.log "log" (cirru-parser/pare code nil))
     (if (not= 1 (count cirru-tree))
       (js/console.warn "data should only contain 1 item" (count cirru-tree)))
     (cirru->edn (first cirru-tree))))
