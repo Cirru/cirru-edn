@@ -12,7 +12,7 @@
             [cirru-edn.core :refer [write parse]]
             [cljs.reader :refer [read-string]]))
 
-(def style-code {:font-family ui/font-code})
+(def style-code {:font-family ui/font-code, :white-space :pre, :font-size 13})
 
 (defcomp
  comp-container
