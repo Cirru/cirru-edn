@@ -377,6 +377,16 @@
                     :data $ {}
                       |T $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1574562737567) (:text |:font-family) (:id |br3qm3lC8E)
                       |j $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1574562741680) (:text |ui/font-code) (:id |Nv_dixpH7X)
+                  |r $ {} (:type :expr) (:by |rJG4IHzWf) (:at 1574782248332)
+                    :data $ {}
+                      |T $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1574782252087) (:text |:white-space) (:id |yW-afrwe7leaf)
+                      |j $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1574782253232) (:text |:pre) (:id |ka7LnaOuq)
+                    :id |yW-afrwe7
+                  |v $ {} (:type :expr) (:by |rJG4IHzWf) (:at 1574782263857)
+                    :data $ {}
+                      |T $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1574782265659) (:text |:font-size) (:id |UH88moyrWleaf)
+                      |j $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1574782272488) (:text |13) (:id |kf1AcINiD)
+                    :id |UH88moyrW
         :proc $ {} (:type :expr) (:time 1499755354983) (:id |rksbjOYqpSZ) (:data $ {})
       |cirru-edn.config $ {}
         :ns $ {} (:type :expr) (:by |root) (:at 1527788237503) (:id |BJlrAf2TyX)
