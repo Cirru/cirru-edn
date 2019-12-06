@@ -37,7 +37,7 @@
     :else (do (js/console.warn "Unknown data" data) [])))
 
 (defn parse [code]
-  (let [cirru-tree (cirru-parser/pare code nil)]
+  (let [cirru-tree (cirru-parser/parse code)]
     (if (not= 1 (count cirru-tree))
       (js/console.warn "data should only contain 1 item" (count cirru-tree)))
     (cirru->edn (first cirru-tree))))

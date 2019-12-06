@@ -1,7 +1,7 @@
 
 {:pom {:group-id "cirru",
        :artifact-id "edn",
-       :version "0.0.1-a7",
+       :version "0.0.1-a8",
        :name "Cirru EDN data parser/format"}
  :packaging {:jar {:enabled true
                    :remote-repository {:id "clojars"
