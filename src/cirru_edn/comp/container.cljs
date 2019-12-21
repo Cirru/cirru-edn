@@ -10,6 +10,7 @@
             [cirru-edn.config :refer [dev?]]
             [favored-edn.core :refer [write-edn]]
             [cirru-edn.core :refer [write parse]]
+            [cirru-edn.nim :as nim]
             [cljs.reader :refer [read-string]]))
 
 (def style-code {:font-family ui/font-code, :white-space :pre, :font-size 13})

@@ -20,6 +20,16 @@ Demo http://repo.cirru.org/cirru-edn/
 (cirru-edn.core/write {:a 1})
 ```
 
+To use parser from nim:
+
+```bash
+yarn add @cirru/parser.nim
+```
+
+```clojure
+(cirru-edn.nim/parse "a b")
+```
+
 ### Workflow
 
 Workflow https://github.com/mvc-works/calcit-workflow
