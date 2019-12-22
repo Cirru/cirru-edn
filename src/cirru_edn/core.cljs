@@ -2,6 +2,10 @@
 (ns cirru-edn.core
   (:require [cirru-parser.core :as cirru-parser] [cirru-writer.core :as cirru-writer]))
 
+(def number-pattern (re-pattern #"-?[\d\.]+"))
+
+(def symbol-pattern (re-pattern #"\w[\w\d_\/\-\?\>\<\.\:\=\+\*\!\$]+"))
+
 (defn cirru->edn [xs]
   (cond
     (string? xs)
@@ -11,8 +15,9 @@
         (= "true" xs) true
         (= "false" xs) false
         (= "nil" xs) nil
-        (re-matches (re-pattern #"-?[\d\.]+") xs) (js/parseFloat xs)
-        :else (do (js/console.warn "Unknow data" xs) nil))
+        (re-matches number-pattern xs) (js/parseFloat xs)
+        (re-matches symbol-pattern xs) (symbol xs)
+        :else (do (js/console.warn "Unknow data" xs) (str xs)))
     (vector? xs)
       (cond
         (= "[]" (first xs)) (->> xs (rest) (map cirru->edn) (vec))
@@ -20,7 +25,7 @@
         (= "set" (first xs)) (->> xs (rest) (map cirru->edn) (set))
         (= "{}" (first xs))
           (->> xs (rest) (map (fn [[k v]] [(cirru->edn k) (cirru->edn v)])) (into {})))
-    :else (do (js/console.warn "Unknown data" xs) nil)))
+    :else (do (js/console.warn "Unknown data" xs) (str xs))))
 
 (defn edn->cirru [data]
   (cond
@@ -34,6 +39,7 @@
     (list? data) (vec (concat (list "list") (map edn->cirru data)))
     (set? data) (vec (concat (list "set") (map edn->cirru data)))
     (nil? data) "nil"
+    (symbol? data) (name data)
     :else (do (js/console.warn "Unknown data" data) [])))
 
 (defn parse [code]
