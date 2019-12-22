@@ -11,7 +11,7 @@ Demo http://repo.cirru.org/cirru-edn/
 [![Respo](https://img.shields.io/clojars/v/cirru/edn.svg)](https://clojars.org/cirru/edn)
 
 ```edn
-[cirru/edn "0.0.1"]
+[cirru/edn "0.0.3"]
 ```
 
 ```clojure
@@ -20,7 +20,7 @@ Demo http://repo.cirru.org/cirru-edn/
 (cirru-edn.core/write {:a 1})
 ```
 
-To use parser from nim:
+To use [parser from nim](https://github.com/Cirru/parser.nim/):
 
 ```bash
 yarn add @cirru/parser.nim
