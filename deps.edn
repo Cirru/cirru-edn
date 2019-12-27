@@ -1,6 +1,6 @@
 {
   :deps {
     cirru/writer {:mvn/version "0.1.6"}
-    cirru/parser {:mvn/version "0.2.2"}
+    cirru/parser {:mvn/version "0.2.3"}
   }
 }

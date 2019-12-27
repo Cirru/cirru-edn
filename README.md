@@ -11,7 +11,7 @@ Demo http://repo.cirru.org/cirru-edn/
 [![Respo](https://img.shields.io/clojars/v/cirru/edn.svg)](https://clojars.org/cirru/edn)
 
 ```edn
-[cirru/edn "0.0.4"]
+[cirru/edn "0.0.5"]
 ```
 
 ```clojure
