@@ -24,7 +24,9 @@
         (= "list" (first xs)) (->> xs (rest) (map cirru->edn))
         (= "set" (first xs)) (->> xs (rest) (map cirru->edn) (set))
         (= "{}" (first xs))
-          (->> xs (rest) (map (fn [[k v]] [(cirru->edn k) (cirru->edn v)])) (into {})))
+          (->> xs (rest) (map (fn [[k v]] [(cirru->edn k) (cirru->edn v)])) (into {}))
+        (= "do" (first xs)) (cirru->edn (get xs 1))
+        :else (do (js/console.warn "Unknown xs" xs) nil))
     :else (do (js/console.warn "Unknown data" xs) (str xs))))
 
 (defn edn->cirru [data]
@@ -48,4 +50,7 @@
       (js/console.warn "data should only contain 1 item" (count cirru-tree)))
     (cirru->edn (first cirru-tree))))
 
-(defn write [data] (cirru-writer/write-code [(edn->cirru data)] {:inline? true}))
+(defn write [data]
+  (cirru-writer/write-code
+   [(if (coll? data) (edn->cirru data) ["do" (edn->cirru data)])]
+   {:inline? true}))
