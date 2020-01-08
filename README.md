@@ -20,6 +20,14 @@ Demo http://repo.cirru.org/cirru-edn/
 (cirru-edn.core/write {:a 1})
 ```
 
+To represent single liternals, Cirru EDN requires an extra `do x` syntax, for example:
+
+```cirru
+do :something
+```
+
+### use Nim parser(experimental. can be slow)
+
 To use [parser from nim](https://github.com/Cirru/parser.nim/):
 
 ```bash
