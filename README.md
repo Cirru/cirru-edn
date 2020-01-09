@@ -11,7 +11,7 @@ Demo http://repo.cirru.org/cirru-edn/
 [![Respo](https://img.shields.io/clojars/v/cirru/edn.svg)](https://clojars.org/cirru/edn)
 
 ```edn
-[cirru/edn "0.0.5"]
+[cirru/edn "0.0.6"]
 ```
 
 ```clojure
@@ -36,6 +36,56 @@ yarn add @cirru/parser.nim
 
 ```clojure
 (cirru-edn.nim/parse "a b")
+```
+
+### Syntax
+
+Cirru EDN is based on [Cirru Text Syntax](http://text.cirru.org/), on top of which there is specific syntax for EDN:
+
+Vectors, lists and sets:
+
+```cirru
+[] 1 2 3
+```
+
+```cirru
+list 1 2 3
+```
+
+```cirru
+set 1 2 3
+```
+
+Hashmap:
+
+```cirru
+{}
+  :a 1
+  :b 3
+```
+
+Literals, since Cirru use lines for expressions, need `do` for extracting values:
+
+```cirru
+do 1
+```
+
+```cirru
+do :k
+```
+
+```cirru
+do nil
+```
+
+Strings need to be prefixed with a `|`:
+
+```cirru
+do |short
+```
+
+```cirru
+do "|long text"
 ```
 
 ### Workflow
