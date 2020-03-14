@@ -4,6 +4,8 @@
   "description": "ClojureScript workflow using Calcit Editor",
   "main": "index.js",
   "scripts": {
+    "deploy": "clj -A:release",
+    "m2": "clj -A:release install",
     "watch": "shadow-cljs watch client",
     "serve": "http-server dist -s",
     "build-cdn": "shadow-cljs clj-run build.main/build-cdn",
@@ -21,10 +23,10 @@
   "devDependencies": {
     "@cirru/parser.nim": "^0.0.5",
     "http-server": "^0.12.1",
-    "shadow-cljs": "^2.8.83"
+    "shadow-cljs": "^2.8.92"
   },
   "dependencies": {
-    "feather-icons": "^4.25.0",
+    "feather-icons": "^4.26.0",
     "shortid": "^2.2.15"
   }
 }

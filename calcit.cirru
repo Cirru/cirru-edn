@@ -1015,7 +1015,7 @@
                     :data $ {}
                       |T $ {} (:type :expr) (:by |rJG4IHzWf) (:at 1574564404043) (:id |nx8dCLEpfT)
                         :data $ {}
-                          |T $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1574564408956) (:text |list?) (:id |YcQtiG3XHK)
+                          |T $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1584195566462) (:text |seq?) (:id |YcQtiG3XHK)
                           |j $ {} (:type :leaf) (:by |rJG4IHzWf) (:at 1574564404043) (:text |data) (:id |B4cWfybcDK)
                       |j $ {} (:type :expr) (:by |rJG4IHzWf) (:at 1574564404043) (:id |8JDrR8aEDq)
                         :data $ {}
