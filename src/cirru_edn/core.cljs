@@ -38,7 +38,7 @@
     (map? data)
       (vec (concat (list "{}") (map (fn [[k v]] [(edn->cirru k) (edn->cirru v)]) data)))
     (vector? data) (vec (concat (list "[]") (map edn->cirru data)))
-    (list? data) (vec (concat (list "list") (map edn->cirru data)))
+    (seq? data) (vec (concat (list "list") (map edn->cirru data)))
     (set? data) (vec (concat (list "set") (map edn->cirru data)))
     (nil? data) "nil"
     (symbol? data) (name data)
