@@ -2,9 +2,7 @@
 (ns cirru-edn.comp.container
   (:require [hsl.core :refer [hsl]]
             [respo-ui.core :as ui]
-            [respo.core
-             :refer
-             [defcomp defeffect cursor-> <> div button textarea span input]]
+            [respo.core :refer [defcomp defeffect >> <> div button textarea span input]]
             [respo.comp.space :refer [=<]]
             [reel.comp.reel :refer [comp-reel]]
             [cirru-edn.config :refer [dev?]]
@@ -18,7 +16,10 @@
 (defcomp
  comp-container
  (reel)
- (let [store (:store reel), states (:states store), state (or (:data states) {:draft ""})]
+ (let [store (:store reel)
+       states (:states store)
+       cursor []
+       state (or (:data states) {:draft ""})]
    (div
     {:style (merge ui/global ui/fullscreen ui/column)}
     (div
@@ -26,7 +27,7 @@
      (button
       {:style ui/button,
        :inner-text "Parse Cirru to EDN",
-       :on-click (fn [e d! m!]
+       :on-click (fn [e d!]
          (try
           (d! :result (write-edn (parse (:draft state)) {:indent 2}))
           (catch js/Error e (d! :error e))))})
@@ -34,7 +35,7 @@
      (button
       {:style ui/button,
        :inner-text "Write Cirru from EDN",
-       :on-click (fn [e d! m!]
+       :on-click (fn [e d!]
          (try
           (d! :result (write (read-string (:draft state))))
           (catch js/Error e (d! :error e))))}))
@@ -44,10 +45,10 @@
      (textarea
       {:style (merge ui/expand ui/textarea style-code),
        :value (:draft state),
-       :on-input (fn [e d! m!] (m! (assoc state :draft (:value e))) (d! :result "")),
+       :on-input (fn [e d!] (d! cursor (assoc state :draft (:value e))) (d! :result "")),
        :placeholder "Data..."})
      (textarea
       {:style (merge ui/expand ui/textarea style-code),
        :value (:result store),
        :placeholder "Compile result.."}))
-    (when dev? (cursor-> :reel comp-reel states reel {})))))
+    (when dev? (comp-reel (>> states :reel) reel {})))))
