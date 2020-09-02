@@ -32,7 +32,7 @@
         (= "{}" (first xs))
           (->> xs (rest) (map (fn [[k v]] [(cirru->edn k) (cirru->edn v)])) (into {}))
         (= "do" (first xs)) (cirru->edn (get xs 1))
-        (= "quote" (first xs)) (get xs 1)
+        (= "quote" (first xs)) (with-meta (get xs 1) :quoted-cirru)
         :else (do (js/console.warn "Unknown xs" xs) nil))
     :else (do (js/console.warn "Unknown data" xs) (str xs))))
 
@@ -68,4 +68,5 @@
 (defn user-scripts []
   (println (write {:a 1, :b (with-meta ["def" "a" ["x" "y"] ["+" "x" "y"]] :quoted-cirru)}))
   (println "will fail:" (write {:a 1, :b (with-meta ["a" "b" "c" {:a 1}] :quoted-cirru)}))
-  (println (pr-str (parse "{}\n  :a $ quote $ def f (x y) (+ x y)\n"))))
+  (println (pr-str (parse "{}\n  :a $ quote $ def f (x y) (+ x y)\n")))
+  (println (write (parse "{}\n  :a $ quote $ def f (x y) (+ x y)\n"))))
