@@ -1,4 +1,4 @@
-{:version "0.0.9"
+{:version "0.0.10-a1"
  :group-id "cirru"
  :artifact-id "edn"
  :skip-tag true

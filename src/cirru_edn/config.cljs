@@ -19,5 +19,5 @@
    :release-ui "http://cdn.tiye.me/favored-fonts/main-fonts.css",
    :cdn-url "http://cdn.tiye.me/cirru-edn/",
    :title "Cirru EDN",
-   :icon "http://cdn.tiye.me/logo/mvc-works.png",
+   :icon "http://cdn.tiye.me/logo/cirru.png",
    :storage-key "cirru-edn"})

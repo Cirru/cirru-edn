@@ -88,6 +88,22 @@ do |short
 do "|long text"
 ```
 
+### Quoted Cirru format
+
+For vectors of Cirru data, use `(with-meta [] :quoted-cirru)` to generate an embeded quoted syntax. For example:
+
+```clojure
+(write {:a 1, :b (with-meta ["def" "a" ["x" "y"] ["+" "x" "y"]] :quoted-cirru)})
+```
+
+generates:
+
+```cirru
+{} (:a 1)
+  :b $ quote
+    def a (x y) (+ x y)
+```
+
 ### Workflow
 
 Workflow https://github.com/mvc-works/calcit-workflow
