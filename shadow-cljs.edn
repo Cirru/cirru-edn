@@ -4,14 +4,14 @@
   :dependencies [
     [mvc-works/hsl "0.1.2"]
     [mvc-works/shell-page "0.1.15"]
-    [respo "0.13.3"]
+    [respo "0.13.4"]
     [respo/ui "0.3.15"]
     [respo/alerts "0.5.5"]
     [respo/value "0.3.0"]
     [respo/markdown "0.2.5"]
     [respo/feather "0.1.1"]
     [respo/reel "0.4.2"]
-    [cirru/writer "0.1.7"]
+    [cirru/writer "0.1.8-a1"]
     [cirru/parser "0.2.5"]
     [cirru/favored-edn "0.1.3"]
     [cumulo/util "0.1.12"]
@@ -36,8 +36,6 @@
         :build-options {:manifest-name "assets.edn"}
       }
     }
-    :page {
-      :target :node-script, :output-to "target/page.js", :main cirru-edn.page/main!
-    }
+    :page {:target :node-script, :output-to "target/page.js", :main cirru-edn.page/main!}
   }
 }
