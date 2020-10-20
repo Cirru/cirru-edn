@@ -53,7 +53,7 @@ list 1 2 3
 ```
 
 ```cirru
-set 1 2 3
+#{} 1 2 3
 ```
 
 Hashmap:
