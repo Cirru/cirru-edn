@@ -29,6 +29,7 @@
         (= "[]" (first xs)) (->> xs (rest) (map cirru->edn) (vec))
         (= "list" (first xs)) (->> xs (rest) (map cirru->edn))
         (= "set" (first xs)) (->> xs (rest) (map cirru->edn) (set))
+        (= "#{}" (first xs)) (->> xs (rest) (map cirru->edn) (set))
         (= "{}" (first xs))
           (->> xs (rest) (map (fn [[k v]] [(cirru->edn k) (cirru->edn v)])) (into {}))
         (= "do" (first xs)) (cirru->edn (get xs 1))
@@ -49,7 +50,7 @@
         (do (check-cirru-format data) ["quote" data])
         (vec (concat (list "[]") (map edn->cirru data))))
     (seq? data) (vec (concat (list "list") (map edn->cirru data)))
-    (set? data) (vec (concat (list "set") (map edn->cirru data)))
+    (set? data) (vec (concat (list "#{}") (map edn->cirru data)))
     (nil? data) "nil"
     (symbol? data) (name data)
     :else (do (js/console.warn "Unknown data" data) [])))
