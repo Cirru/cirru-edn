@@ -1,6 +1,7 @@
-{:version "0.0.10-a4"
- :group-id "cirru"
- :artifact-id "edn"
- :skip-tag true
- :description "Cirru EDN data parser/format"
+{:version "0.0.10",
+ :group-id "cirru",
+ :artifact-id "edn",
+ :skip-tag true,
+ :description "Cirru EDN data parser/format",
  :scm-url "https://github.com/Cirru/cirru-edn"}
+
