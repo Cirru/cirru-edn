@@ -61,10 +61,12 @@
       (js/console.warn "data should only contain 1 item" (count cirru-tree)))
     (cirru->edn (first cirru-tree))))
 
-(defn write [data]
-  (cirru-writer/write-code
-   [(if (coll? data) (edn->cirru data) ["do" (edn->cirru data)])]
-   {:inline? true}))
+(defn write
+  ([data] (write data {:inline? true}))
+  ([data options]
+   (cirru-writer/write-code
+    [(if (coll? data) (edn->cirru data) ["do" (edn->cirru data)])]
+    options)))
 
 (defn user-scripts []
   (println (write {:a 1, :b (with-meta ["def" "a" ["x" "y"] ["+" "x" "y"]] :quoted-cirru)}))

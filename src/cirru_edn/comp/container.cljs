@@ -37,7 +37,7 @@
        :inner-text "Write Cirru from EDN",
        :on-click (fn [e d!]
          (try
-          (d! :result (write (read-string (:draft state))))
+          (d! :result (write (read-string (:draft state)) {:inline? false}))
           (catch js/Error e (d! :error e))))}))
     (div {:style ui/center} (if (some? (:error store)) (<> (:error store) {:color :red})))
     (div
