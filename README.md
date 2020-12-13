@@ -18,6 +18,7 @@ Demo http://repo.cirru.org/cirru-edn/
 (cirru-edn.core/parse "a b")
 
 (cirru-edn.core/write {:a 1})
+(cirru-edn.core/write {:a 1} {:inline? false}) ; by default, :inline? is set true
 ```
 
 To represent single liternals, Cirru EDN requires an extra `do x` syntax, for example:
